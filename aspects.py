@@ -34,11 +34,13 @@ def main():
 
 
 def calculate(total_item, crests, fragments):
+    # the actual calculation
     required_fragments = total_item * 60
     required_dungeon = math.ceil(
         (required_fragments - ((crests * 15) + fragments)) / 12
     )
 
+    # plural or singular
     if required_dungeon > 1:
         dungeon = "dungeons"
     else:
@@ -47,10 +49,12 @@ def calculate(total_item, crests, fragments):
         item_level = "447s"
     else:
         item_level = "447"
-    if crests >= 4 * total_item or crests >= (crests + fragments / 15) * total_item:
-        print("You already have enough crests to craft 447")
+
+    # result
+    if required_fragments <= (4 * crests + 4 * fragments):
+        sys.exit("You already have enough crests to craft!")
     else:
-        print(
+        sys.exit(
             f"You need to run {required_dungeon} more {dungeon} to be able to craft {total_item} more {item_level}!"
         )
 
