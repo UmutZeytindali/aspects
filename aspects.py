@@ -3,11 +3,33 @@ import math
 
 
 def main():
-    total_item = int(input("How many items do you want to craft? "))
-    crests = int(input("Enter the amount of crests you have: "))
+    while True:
+        try:
+            total_item = int(input("How many items do you want to craft? "))
+        except ValueError:
+            print("Please enter an integer.")
+        else:
+            break
+
+    while True:
+        try:
+            crests = int(input("Enter the amount of crests you have: "))
+        except ValueError:
+            print("Please enter an integer.")
+        else:
+            break
+
     if crests >= 4 * total_item:
         sys.exit("You already have enough crests to craft 447!")
-    fragments = int(input("Enter the amount of fragments you have: "))
+
+    while True:
+        try:
+            fragments = int(input("Enter the amount of fragments you have: "))
+        except ValueError:
+            print("Please enter an integer.")
+        else:
+            break
+
     calculate(total_item, crests, fragments)
 
 
