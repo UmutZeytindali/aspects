@@ -34,7 +34,7 @@ def main():
 
 
 def calculate(total_item, crests, fragments):
-    # the actual calculation
+    # the actual calculation xd
     required_fragments = total_item * 60
     required_dungeon = math.ceil(
         (required_fragments - ((crests * 15) + fragments)) / 12
